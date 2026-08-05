@@ -6,21 +6,15 @@ export type IconName =
   | "building-2"
   | "calendar-check"
   | "check-check"
-  | "circle-gauge"
   | "clipboard-check"
-  | "clock-3"
   | "graduation-cap"
   | "handshake"
-  | "headphones"
   | "hotel"
   | "landmark"
-  | "life-buoy"
-  | "map-pin"
   | "network"
   | "package-check"
   | "router"
   | "settings-2"
-  | "shield-check"
   | "store"
   | "wifi";
 
@@ -96,7 +90,7 @@ export const siteConfig: SiteConfig = {
   ],
   hero: {
     eyebrow: "Pengadaan untuk Bisnis & Institusi",
-    title: "Banyak Kebutuhan?,",
+    title: "Banyak Kebutuhan?",
     highlight: "Cukup Satu Vendor!",
     description:
       "Butuh memasang internet kantor, membeli komputer dan printer, menyediakan ATK, atau menyiapkan perlengkapan seminar? Sampaikan daftarnya kepada kami. Kami bantu membahasnya satu per satu.",
