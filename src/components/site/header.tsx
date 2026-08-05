@@ -26,11 +26,10 @@ export function SiteHeader({ navigation }: { navigation: SiteConfig["navigation"
         entries.forEach((entry) => ratios.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0));
         const visible = [...ratios.entries()].filter((entry) => entry[1] > 0).sort((a, b) => b[1] - a[1])[0];
         const nextActive = visible?.[0] ?? "";
-        setActive((current) => {
-          if (current === nextActive) return current;
-          if (nextActive) window.history.replaceState(null, "", `#${nextActive}`);
-          return nextActive;
-        });
+        setActive(nextActive);
+        if (nextActive && window.location.hash !== `#${nextActive}`) {
+          window.history.replaceState(null, "", `#${nextActive}`);
+        }
       },
       { rootMargin: "-22% 0px -58% 0px", threshold: [0.05, 0.2, 0.5, 0.8] },
     );

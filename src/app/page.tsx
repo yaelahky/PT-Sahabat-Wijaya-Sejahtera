@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/content/site-content";
+import { withBasePath } from "@/lib/base-path";
 
 function SectionHeading({ eyebrow, title, description, align = "left", id }: { eyebrow: string; title: string; description?: string; align?: "left" | "center"; id?: string }) {
   return (
@@ -65,7 +66,7 @@ export default function Home() {
 
             <div className="relative mx-auto w-full max-w-[44rem]" data-reveal style={{ "--reveal-delay": "120ms" } as React.CSSProperties}>
               <div className="relative aspect-square">
-                <Image src="/images/sahabat-solutions-hero-transparent.webp" alt="Tim sedang membahas kebutuhan perangkat dan jaringan kantor" fill priority sizes="(max-width: 1024px) 92vw, 45vw" className="object-contain drop-shadow-[0_30px_40px_rgba(22,64,135,.16)]" />
+                <Image src={withBasePath("/images/sahabat-solutions-hero-transparent.webp")} alt="Tim sedang membahas kebutuhan perangkat dan jaringan kantor" fill priority sizes="(max-width: 1024px) 92vw, 45vw" className="object-contain drop-shadow-[0_30px_40px_rgba(22,64,135,.16)]" />
               </div>
               <div className="absolute right-0 -bottom-5 w-[min(82%,20rem)] rounded-2xl border border-white/80 bg-white/94 p-4 shadow-[0_18px_50px_rgba(18,52,110,.16)] backdrop-blur-md sm:right-3 lg:right-0 lg:bottom-4">
                 <div className="flex items-center justify-between gap-4">
@@ -107,7 +108,7 @@ export default function Home() {
               {siteConfig.services.map((service, index) => (
                 <Card key={service.title} data-service-card className={`card-lift group flex h-full flex-col overflow-hidden ${index < 3 ? "xl:col-span-2" : "xl:col-span-3"} ${index === 4 ? "md:col-span-2" : ""}`} data-reveal style={{ "--reveal-delay": `${Math.min(index, 3) * 60}ms` } as React.CSSProperties}>
                   <div className="relative aspect-[3/2] overflow-hidden border-b border-[var(--border)] bg-[var(--surface-warm)]">
-                    <Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 34vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.025]" />
+                    <Image src={withBasePath(service.image)} alt={service.imageAlt} fill sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 34vw" className="object-cover transition-transform duration-500 group-hover:scale-[1.025]" />
                   </div>
                   <div className="flex flex-1 flex-col p-5 sm:p-6">
                     <div className="flex items-center gap-3"><span className="icon-tile shrink-0 group-hover:bg-[var(--primary)] group-hover:text-white"><SiteIcon name={service.icon} /></span><CardTitle>{service.title}</CardTitle></div>
